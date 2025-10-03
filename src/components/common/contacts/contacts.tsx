@@ -40,7 +40,7 @@ export default function Contacts() {
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A335208877bc6b471f169a3e74947880e08008dc840ffd1cb19b2361acb4aa5b2&amp;source=constructor"
             width="500"
             height="400"
-            frameborder="0"
+            frameBorder="0"
           ></iframe>
         </div>
       </div>
