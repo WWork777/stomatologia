@@ -1,95 +1,68 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import HeroBlock from "@/components/common/hero-block/hero-block";
+import About from "@/components/main-page/about/about";
+import Specialists from "@/components/main-page/specialists-slider/specialists-slider";
+import Services from "@/components/main-page/services/services";
+import Sales from "@/components/main-page/sales/sales-slider";
+import BlogSlider from "@/components/main-page/blog-slider/blog-slider";
+import RewievsSlider from "@/components/main-page/rewievs-slider/rewievs-slider";
+import Contacts from "@/components/common/contacts/contacts";
+
+export async function generateMetadata() {
+  return {
+    title: "Стоматология в Кемерово | Тридцать Два",
+    description:
+      "Современная стоматология в Кемерово: лечение, имплантация, протезирование, отбеливание и детская стоматология. Без боли, по доступным ценам, с гарантией.",
+    alternates: {
+      canonical: "https://stomatologiya42.ru",
+    },
+    openGraph: {
+      title: `Стоматология в Кемерово | Тридцать Два`,
+      description: `Современная стоматология в Кемерово: лечение, имплантация, протезирование, отбеливание и детская стоматология. Без боли, по доступным ценам, с гарантией.`,
+      url: "https://stomatologiya42.ru",
+      siteName: "Стоматология Кемерово",
+      images: [
+        {
+          url: `/about/about.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `Стоматология в Кемерово`,
+        },
+      ],
+      locale: "ru_RU",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Стоматология в Кемерово | Тридцать Два",
+      description:
+        "Современная стоматология в Кемерово: лечение, имплантация, протезирование, отбеливание и детская стоматология. Без боли, по доступным ценам, с гарантией.",
+      images: [`/about/about.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <HeroBlock />
+      <About />
+      <Services />
+      <Specialists />
+      <Sales />
+      <BlogSlider />
+      <RewievsSlider />
+      <Contacts />
+    </>
   );
 }

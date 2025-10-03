@@ -1,0 +1,181 @@
+.mySwiper {
+  overflow: visible !important;
+}
+
+.home_team_slider {
+  margin-top: 50px;
+  border-radius: 15px;
+
+  .swiper-wrapper {
+    border-radius: 15px;
+  }
+  @media (max-width: 600px) {
+    margin-top: 10px;
+  }
+}
+
+.slider_card {
+  background-color: var(--color-container);
+  border-radius: 30px; // уменьшил
+  padding: 20px; // уменьшил
+  display: flex;
+  flex-direction: column;
+  max-height: 720px;
+  min-height: 720px; // добавил минимальную высоту
+  gap: 12px; // уменьшил
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: auto; // добавил фиксированную высоту
+  transition: all 0.3s ease; // добавил плавность
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  h3 {
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-size: 22px; // уменьшил
+    line-height: 1.2; // изменил
+    color: var(--color-text-primary);
+    margin: 0;
+    display: -webkit-box;
+  }
+
+  p {
+    font-family: var(--font-family-sans);
+    font-weight: 400;
+    font-size: 18px; // уменьшил
+    line-height: 1.1; // изменил
+    color: var(--color-text-primary);
+    margin: 0;
+    flex-grow: 1; // занимает доступное пространство
+  }
+}
+
+.specialistImage {
+  width: 100%;
+  height: 450px;
+  min-height: 450px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.card_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  span {
+    font-family: var(--font-family-sans);
+    font-weight: 400;
+    font-size: 16px; // уменьшил
+    line-height: 1;
+    color: var(--color-container);
+    background-color: var(--color-decorate);
+    padding: 12px; // уменьшил
+    border-radius: 15px; // уменьшил
+  }
+
+  img {
+    width: 40px; // уменьшил иконку
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Обновим настройки Swiper для меньших карточек
+.home_team_slider {
+  .swiper-slide {
+    width: 280px !important; // фиксированная ширина слайда
+  }
+}
+
+// Медиа-запросы для адаптивности
+@media (max-width: 768px) {
+  .slider_card {
+    max-height: 630px;
+    min-height: 630px;
+    padding: 12px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .specialistImage {
+    height: auto;
+    max-height: 450px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .home_team_slider {
+    .swiper-slide {
+      width: 260px !important;
+    }
+  }
+
+  .card_footer {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .home_team_slider {
+    margin-top: 20px;
+  }
+  .slider_card {
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .specialistImage {
+    height: auto;
+  }
+
+  .home_team_slider {
+    .swiper-slide {
+      width: 240px !important;
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  .slider_card {
+    h3 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    span {
+      font-family: var(--font-family-sans);
+      font-weight: 400;
+      font-size: 14px; // уменьшил
+      line-height: 1;
+      color: var(--color-container);
+      background-color: var(--color-decorate);
+      padding: 12px; // уменьшил
+      border-radius: 15px; // уменьшил
+    }
+  }
+}
