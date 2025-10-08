@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Contacts() {
   return (
-    <section className={styles.container} id="contacts">
+    <section id="contacts">
       <div className={styles.contacts_container}>
         <div className={styles.contacts}>
           <h2>Контакты</h2>

@@ -133,6 +133,8 @@
   }
 
   .corner_button {
+    display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0px;
     right: 0px;

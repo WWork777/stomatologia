@@ -56,8 +56,8 @@ export default function Header() {
           {/* Навигация desktop */}
           <nav className={styles.nav}>
             <a href="#about">О клинике</a>
-            <a href="#services">Услуги</a>
-            <a href="#specialists">Специалисты</a>
+            <a href="/services">Услуги</a>
+            <a href="/specialists">Специалисты</a>
             <a href="#sales">Акции</a>
             <a href="#reviews">Отзывы</a>
             <a href="#contacts">Контакты</a>
@@ -134,10 +134,10 @@ export default function Header() {
             <a href="#about" onClick={() => setMenuOpen(false)}>
               О клинике
             </a>
-            <a href="#services" onClick={() => setMenuOpen(false)}>
+            <a href="/services" onClick={() => setMenuOpen(false)}>
               Услуги
             </a>
-            <a href="#specialists" onClick={() => setMenuOpen(false)}>
+            <a href="/specialists" onClick={() => setMenuOpen(false)}>
               Специалисты
             </a>
             <a href="#sales" onClick={() => setMenuOpen(false)}>

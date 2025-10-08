@@ -41,7 +41,7 @@ export default function Sales() {
   };
   return (
     <>
-      <section id="sales" className="container">
+      <section id="sales" className="component">
         <div>
           <h2>Акции</h2>
         </div>

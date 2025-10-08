@@ -175,7 +175,7 @@ export default function ReviewsSlider() {
 
   return (
     <>
-      <section id="reviews" className="container">
+      <section id="reviews" className="component">
         <div className={styles.rewievs_container}>
           <div className={styles.rewievs_container__top}>
             <div>

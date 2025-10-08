@@ -1,3 +1,4 @@
+// components/services/specialists/specialists-slider.tsx
 "use client";
 import styles from "./styles.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,34 +8,49 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useState } from "react";
 import Link from "next/link";
+import { specialistsData } from "@/data/specialists.data";
 
-interface SliderCard {
+interface SliderCardProps {
   img: string;
   name: string;
   description: string;
-  age: string;
+  stage?: string;
+  showStage?: boolean;
+  link?: string;
+  showWhatsApp?: boolean;
+  waLink?: string; // Добавляем пропс для WhatsApp ссылки
 }
 
-const SliderCard = ({ img, name, description, age }: SliderCard) => {
+export const SliderCard = ({
+  img,
+  name,
+  description,
+  stage,
+  showStage = true,
+  link = "",
+  showWhatsApp = true,
+  waLink = "", // Добавляем waLink
+}: SliderCardProps) => {
   return (
     <div className={styles.slider_card}>
-      <img src={img} alt="" className={styles.specialistImage} />
-      <h3>{name}</h3>
-      <p>{description}</p>
+      <div className={styles.card_link}>
+        <img src={img} alt={name} className={styles.specialistImage} />
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
       <div className={styles.card_footer}>
-        <span>Стаж : {age}</span>
-        <Link href="">
-          <img src="/socials/waSecond.svg" alt="" />
-        </Link>
+        {showStage && stage && <span>Стаж: {stage}</span>}
+
+        {showWhatsApp &&
+          waLink && ( // Показываем WhatsApp только если есть ссылка
+            <Link href={waLink} target="_blank" rel="noopener noreferrer">
+              <img src="/socials/waSecond.svg" alt="WhatsApp" />
+            </Link>
+          )}
       </div>
     </div>
   );
 };
-
-interface HomeTeamProps {
-  teamTitle: string;
-  teamSubTitle: string;
-}
 
 export default function Specialists() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,11 +59,17 @@ export default function Specialists() {
     setIsModalOpen(!isModalOpen);
     setProcedureName(procedureName);
   };
+
+  const allSpecialists = Object.values(specialistsData);
+
   return (
     <>
-      <section id="specialists" className="container">
-        <div>
+      <section id="specialists" className="component">
+        <div className={styles.head}>
           <h2>Специалисты</h2>
+          <Link href="/specialists" className={styles.all_button}>
+            <span>Все специалисты</span>
+          </Link>
         </div>
 
         <div className={styles.home_team_slider}>
@@ -75,11 +97,11 @@ export default function Specialists() {
                 spaceBetween: 25,
               },
               1024: {
-                slidesPerView: 2.5,
+                slidesPerView: 3,
                 spaceBetween: 30,
               },
-              1440: {
-                slidesPerView: 3.3,
+              1600: {
+                slidesPerView: 3.8,
                 spaceBetween: 40,
               },
             }}
@@ -88,38 +110,20 @@ export default function Specialists() {
               swiper.navigation.update();
             }}
           >
-            <SwiperSlide>
-              <SliderCard
-                img="/specialists/1.jpg"
-                name="Иванова Мария Сергеевна"
-                description="Главный врач, врач-стоматолог терапевт"
-                age="17 лет"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <SliderCard
-                img="/specialists/2.jpg"
-                name="Маркелова Екатерина Дмитриевна"
-                description="Врач-стоматолог хирург имплантолог, врач-стоматолог ортопед, врач-стоматолог терапевт ."
-                age="12 лет"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <SliderCard
-                img="/specialists/3.jpg"
-                name="Васильева Юлия Сергеевна"
-                description="Врач-стоматолог терапевт"
-                age="12 лет"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <SliderCard
-                img="/specialists/4.jpg"
-                name="Бондарев Станислав Сергеевич"
-                description="Врач-стоматолог ортопед"
-                age="16 лет"
-              />
-            </SwiperSlide>
+            {allSpecialists.map((specialist) => (
+              <SwiperSlide key={specialist.id}>
+                <SliderCard
+                  img={specialist.imageLink}
+                  name={specialist.name}
+                  description={specialist.description}
+                  stage={specialist.stage}
+                  showStage={!!specialist.stage}
+                  link={`/specialists/${specialist.id}`}
+                  showWhatsApp={true}
+                  waLink={specialist.waLink}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </section>

@@ -26,7 +26,7 @@ export default function Footer() {
           <Link href="#" className={styles.footer_center_link}>
             <p>О клинике</p>
           </Link>
-          <Link href="#" className={styles.footer_center_link}>
+          <Link href="/services" className={styles.footer_center_link}>
             <p>Услуги</p>
           </Link>
           <Link href="#" className={styles.footer_center_link}>

@@ -10,7 +10,7 @@
   padding: 20px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
+  // cursor: pointer;
 
   // Градиентная подсветка при hover
   &::before {
@@ -54,11 +54,19 @@
       opacity: 1;
     }
 
-    button {
+    .cta_button {
       background-color: #2a4a8a;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(48, 85, 157, 0.4),
         0 0 0 2px rgba(48, 85, 157, 0.1);
+    }
+
+    .more_button {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(48, 85, 157, 0.2),
+        0 0 0 2px rgba(48, 85, 157, 0.05);
+      border-color: var(--color-decorate);
+      background-color: white;
     }
   }
 
@@ -98,21 +106,36 @@
     position: relative;
   }
 
-  button {
+  // Контейнер для кнопок
+  > div:first-child {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  // Группа кнопок
+  .button_group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    z-index: 3;
+    position: relative;
+  }
+
+  .cta_button {
     background-color: var(--color-decorate);
     color: var(--color-container);
     border: none;
-    border-radius: 18px;
-    height: 50px;
-    font-size: 20px;
+    border-radius: 12px;
+    height: 45px;
+    font-size: 16px;
     font-weight: 600;
-    width: 50%;
+    flex: 1;
     cursor: pointer;
     font-family: var(--font-family-sans);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 3;
-    position: relative;
     overflow: hidden;
+    position: relative;
 
     // Эффект блеска на кнопке
     &::after {
@@ -148,8 +171,65 @@
       transition: all 0.1s ease;
     }
   }
+
+  .more_button {
+    background-color: rgba(255, 255, 255, 0.678);
+    color: var(--color-decorate);
+    border: 2px solid rgba(48, 85, 157, 0.3);
+    border-radius: 12px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1;
+    cursor: pointer;
+    font-family: var(--font-family-sans);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Эффект блеска на кнопке
+    &::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(48, 85, 157, 0.1),
+        transparent
+      );
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+    }
+
+    &:hover::after {
+      transform: rotate(45deg) translate(20px, 20px);
+    }
+
+    &:hover {
+      color: #2a4a8a;
+      border-color: var(--color-decorate);
+      background-color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(48, 85, 157, 0.2),
+        0 0 0 2px rgba(48, 85, 157, 0.05);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      transition: all 0.1s ease;
+    }
+  }
 }
 
+// Остальные стили остаются без изменений...
 .services_list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -207,7 +287,7 @@
   }
 }
 
-.service_card:nth-child(4) {
+.service_card:nth-child(5) {
   &:hover .serviceImage {
     width: 130%;
     height: 130%;
@@ -221,7 +301,7 @@
   }
 }
 
-.service_card:nth-child(5) {
+.service_card:nth-child(4) {
   &:hover .serviceImage {
     transform: translate(30%, 20%) rotate(-35deg) scale(1.1);
   }
@@ -250,12 +330,11 @@
   justify-content: center;
   margin-top: 50px;
 
-  button {
+  .all_services {
     background-color: var(--color-decorate);
     color: var(--color-container);
     border: none;
     border-radius: 18px;
-
     padding: 12px 30px;
     cursor: pointer;
     font-family: var(--font-family-sans);
@@ -273,7 +352,6 @@
       }
     }
 
-    // Градиентный эффект при hover
     &::before {
       content: "";
       position: absolute;
@@ -328,14 +406,10 @@
 
 @media (max-width: 768px) {
   .service_card {
-    height: 280px;
+    height: 320px; // Увеличиваем высоту для мобильных
 
     &:hover {
       transform: translateY(-4px);
-    }
-
-    button {
-      width: 70%;
     }
 
     p {
@@ -349,8 +423,6 @@
   }
 
   .all_services_button {
-    font-size: 10px;
-    padding: 10px 20px;
-    margin-top: 0;
+    margin-top: 30px;
   }
 }

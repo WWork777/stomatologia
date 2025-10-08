@@ -56,13 +56,15 @@ export default function Home() {
   return (
     <>
       <HeroBlock />
-      <About />
-      <Services />
-      <Specialists />
-      <Sales />
-      <BlogSlider />
-      <RewievsSlider />
-      <Contacts />
+      <section className="container">
+        <About />
+        <Services />
+        <Specialists />
+        <Sales />
+        <BlogSlider />
+        <RewievsSlider />
+        <Contacts />
+      </section>
     </>
   );
 }

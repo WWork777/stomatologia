@@ -10,7 +10,12 @@
   background: transparent;
   transition: all 0.3s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1650px) {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  @media (max-width: 1490px) {
     padding-left: 5%;
     padding-right: 5%;
   }

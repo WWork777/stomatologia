@@ -27,6 +27,15 @@ a {
 }
 
 .container {
+  h1 {
+    font-size: 60px;
+    font-weight: 400;
+    margin-top: 50px;
+    @media (max-width: 992px) {
+      font-size: 50px;
+      margin-top: 10px;
+    }
+  }
   // Большие экраны (1440px+)
   @media (min-width: 1440px) and (max-width: 1919px) {
     padding-left: 15%;
@@ -159,5 +168,32 @@ a {
     height: 120px;
     margin-top: -120px;
     visibility: hidden;
+  }
+}
+
+.second_page__container {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 60px;
+    font-weight: 400;
+    margin-top: 50px;
+  }
+}
+
+.component {
+  margin-bottom: 120px;
+
+  h2 {
+    font-size: 44px;
+
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    margin-bottom: 60px;
   }
 }

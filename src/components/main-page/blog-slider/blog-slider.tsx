@@ -40,7 +40,7 @@ export default function BlogSlider() {
   };
   return (
     <>
-      <section id="blog" className="container">
+      <section id="blog" className="component">
         <div>
           <h2>Блог</h2>
         </div>

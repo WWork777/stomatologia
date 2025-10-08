@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export default function HeroBlock() {
@@ -11,9 +12,12 @@ export default function HeroBlock() {
           <p>
             Клиника влюбленных в свое дело <br /> Профилактика и лечение зубов
           </p>
-          <button className={styles.corner_button}>
+          <Link
+            href="https://wa.me/79029830005?text=Здравствуйте хочу записаться на прием"
+            className={styles.corner_button}
+          >
             <span>Записаться онлайн</span>
-          </button>
+          </Link>
         </div>
         <div className={`${styles.hero_left__bottom}`}>
           <div className={`${styles.hero_left__bottom__left}`}>

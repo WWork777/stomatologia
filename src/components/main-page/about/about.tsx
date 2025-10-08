@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 
 export default function About() {
   return (
-    <section className="container" id="about">
+    <section id="about" className="component">
       <div>
         <h2>О клинике</h2>
       </div>
@@ -41,7 +41,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className={styles.about_bottom}>
+        {/* <div className={styles.about_bottom}>
           <div className={styles.about_form}>
             <div className={styles.about_form__text}>
               <h3>
@@ -66,7 +66,7 @@ export default function About() {
               <button type="submit">Отправить</button>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
